@@ -5,7 +5,9 @@ from django.http import HttpResponse
 def home(request):
     return render(request, 'home.html')
 
-
 def main(request):
     return render(request, 'main.html')
+
+def login(request):
+    return render(request, 'login.html')
    
