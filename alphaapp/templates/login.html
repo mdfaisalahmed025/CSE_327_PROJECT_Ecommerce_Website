@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 #brand{
-        width:250px;
+        width:100px;
         display:block;
         margin-top:5px;
         padding-top: 5spx;
@@ -30,12 +30,14 @@
 		</div>
 							
 		<div class="register-info-box">
-			<img id="brand" src="{% static 'images/logo.png' %}" alt="logo"></a>
+			<img id="brand" src="{% static 'images/logo.png' %}" alt="logo"></a> 
 			<h2>Are you a Seller?</h2>
-			<p>If you are a Seller <br> and want to give services to the Customer</p>
+			<p>If you are a Seller <br> and want to give services to the Customer   
+            </p>
 			<label id="label-login" for="log-login-show">Log In From Here</label>
 			<input type="radio" name="active-log-panel" id="log-login-show">
 		</div>
+
 		<form method="POST" action="#">	
 		{% csrf_token %}				
 		<div class="white-panel">

@@ -2,7 +2,7 @@
 body{
   font-family: 'Mukta', sans-serif;
 	height:100vh;
-	min-height:500px;
+	min-height:400px;
 	background-image:url(https://i.pinimg.com/474x/c8/63/c6/c863c62bcdaa5bc68e4b462a2b1b1709.jpg)!important;
 	position:relative;
     overflow-y: hidden;
@@ -20,12 +20,12 @@ a{
 	right:0;left:0;
     margin:auto;
     height:400px;
-    background-color: #343b43;
-    box-shadow: 0 0 15px 9px #00000096;
+    background-color: #75797e;
+    box-shadow: 0 0 15px 9px #50444496;
     border-radius: 3rem;
 }
 .white-panel{
-    background-color: rgba(209, 185, 50, 0.89);
+    background-color: rgba(231, 221, 164, 0.89);
     height:150%;
     position:absolute;
     top:-50px;
