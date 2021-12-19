@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .container{
+  
   margin-top: 3rem;
-  max-width: 700px;
+  max-width: 750px;
   width: 100%;
-  background-color: rgba(209, 185, 50, 0.89);
+  align-content: center;
+  background-color: rgba(59, 201, 78, 0.89);
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
@@ -31,7 +33,7 @@
   margin: 20px 0 12px 0;
 }
 form .user-details .input-box{
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   width: calc(100% / 2 - 20px);
 }
 form .input-box span.details{
@@ -40,7 +42,7 @@ form .input-box span.details{
   margin-bottom: 5px;
 }
 .user-details .input-box input{
-  height: 45px;
+  height: 60px;
   width: 100%;
   outline: none;
   font-size: 16px;

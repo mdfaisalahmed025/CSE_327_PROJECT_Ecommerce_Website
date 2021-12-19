@@ -6,7 +6,7 @@ class User(AbstractUser):
     is_customer = models.BooleanField(default=False)
     is_seller = models.BooleanField(default=False)
 
-class customer(models.Model):
+class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     phone = models.CharField(max_length=200)
     email = models.EmailField(max_length=200)
@@ -14,7 +14,7 @@ class customer(models.Model):
     def __str__(self):
            return self.user.username
 
-class seller(models.Model):
+class Seller(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     phone = models.CharField(max_length=200)
     email = models.EmailField(max_length=200)

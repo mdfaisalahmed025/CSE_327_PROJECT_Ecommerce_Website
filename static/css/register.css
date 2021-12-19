@@ -4,11 +4,12 @@ a{
 }
 a:hover
 {   text-decoration: none;
-color: white;}
+color: white;
+}
 .container{
-    width: 40rem;
-    background-color: #343b43;
-    padding: 4rem;
+    width: 70rem;
+    background-color: #808d9c;
+    padding: 10rem;
     margin: auto;
     display: block;
     text-align: center;

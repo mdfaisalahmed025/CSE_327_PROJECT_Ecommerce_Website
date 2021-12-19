@@ -1,9 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-# from django.db import models, transaction
-from django.forms import ModelForm, fields
-
-from .models import User, customer, Seller
+from django.db import models, transaction
+from .models import User, Customer, Seller
 
 class CustomerSignupForm(UserCreationForm):
     first_name = forms.CharField(required=True)
@@ -15,6 +13,20 @@ class CustomerSignupForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
 
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.first_name = self.cleaned_data.get('first_name')
+        user.last_name = self.cleaned_data.get('last_name')
+        user.email=self.cleaned_data.get('email')
+        user.is_customer = True
+        user.save()
+        customer = Customer.objects.create(user=user)
+        customer.phone_number=self.cleaned_data.get('phone_number')
+        customer.location=self.cleaned_data.get('location')
+        customer.save()
+        return user
+
 
 class SellerSignUpForm(UserCreationForm):
     first_name = forms.CharField(required=True)
@@ -25,4 +37,18 @@ class SellerSignUpForm(UserCreationForm):
   
     class Meta(UserCreationForm.Meta):
         model = User
+
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.first_name = self.cleaned_data.get('first_name')
+        user.last_name = self.cleaned_data.get('last_name')
+        user.email=self.cleaned_data.get('email')
+        user.is_seller = True
+        user.save()
+        seller=Seller.objects.create(user=user)
+        seller.phone=self.cleaned_data.get('phone')
+        seller.licenseNumber=self.cleaned_data.get('licenseNumber')
+        seller.save()
+        return seller
 

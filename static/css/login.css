@@ -20,12 +20,12 @@ a{
 	right:0;left:0;
     margin:auto;
     height:400px;
-    background-color: #75797e;
+    background-color: #7c9bc2;
     box-shadow: 0 0 15px 9px #50444496;
     border-radius: 3rem;
 }
 .white-panel{
-    background-color: rgba(231, 221, 164, 0.89);
+    background-color: rgba(112, 107, 74, 0.89);
     height:150%;
     position:absolute;
     top:-50px;

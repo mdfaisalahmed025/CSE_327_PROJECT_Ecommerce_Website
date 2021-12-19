@@ -1,23 +1,34 @@
 {% extends 'main.html' %}
-
 {% url 'home' as home %}
 {% load static %}
 {% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/registration.css' %}">
-<div class="container">
-<form  method="POST" accept-charset="utf-8">
-<title>Register</title>
-{% csrf_token %}
-{% with name="guser" %}
-{% if user_type == name %}
-    <h2>Register As A Customer</h2>
-{% else %}
-    <h2>Register As A Seller  </h2>
-{% endif %}
-{{form.as_p}}
-<input type="Submit" name="submit" value="Signup">
-{% comment %} <a href='{% url 'home' %}' class='y_button'>Go Back</a> {% endcomment %}
-</form>
+
+<div class=" row">
+     <div class="col-md-8 mx-auto">
+          <div class="container">
+               <form method="POST" accept-charset="utf-8">
+                    <title>Register</title>
+                    {% csrf_token %}
+                    {% with name='customer' %}
+                    {% if user_type == name %}
+                    <h2>Register as a Customer</h2>
+                    {% else %}
+                    <h2>Register As a Seller </h2>
+                    {% endif %}
+                    {{form.as_p}}
+                    <input type="Submit" class="btn btn-danger" name="submit" value="Signup">
+                    <a href='{% url 'main' %}' class='y_button'>Go Back</a>
+               </form>
+          </div>
+
+     </div>
 </div>
+
+
+
+
 {% endwith %}
 {% endblock %}
