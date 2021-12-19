@@ -2,6 +2,6 @@ from django.contrib import admin
 from alphaapp.models import User,Customer,Seller
 
 # Register your models here.
-admin.register(User)
-admin.register(Customer)
-admin.register(Seller)
+admin.site.register(User)
+admin.site.register(Customer)
+admin.site.register(Seller)

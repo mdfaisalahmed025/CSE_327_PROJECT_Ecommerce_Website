@@ -19,7 +19,8 @@ def login(request):
 
 def Signup(request):
     return render(request, 'register.html')
-
+def welcome(request):
+    return render(request, 'success.html')
 
 def log(request):
     """
@@ -30,19 +31,19 @@ def log(request):
     :rtype: HttpResponse.
     """
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('success')
     else:
           if request.method == 'POST':
-              username =request.POST.get('guser_name')
-              password =request.POST.get('guser_password')
+              username =request.POST.get('customer_name')
+              password =request.POST.get('customer_password')
              
               user= authenticate(request, username=username, password=password)
 
-              if user is not None and user.is_guser:
+              if user is not None and user.is_customer:
                   login(request, user)
-                  return redirect('home')
-              elif user is not None and user.is_trainmaster:
-                  messages.info(request, 'This  is for general users only, You are a Train Master')
+                  return redirect('success')
+              elif user is not None and user.is_seller:
+                  messages.info(request, 'This  is for customers only, You are a Seller')
               else:
                  messages.info(request, 'Username or Password is incorrect')
             
@@ -59,17 +60,16 @@ def log2(request):
     :rtype: HttpResponse.
     """
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('success')
     else:
           if request.method == 'POST':
               username =request.POST.get('seller_name')
               password =request.POST.get('seller_password')
-             
               user= authenticate(request, username=username, password=password)
 
               if user is not None and user.is_seller:
                   login(request, user)
-                  return redirect('home')
+                  return redirect('main')
               elif user is not None and user.is_customer:
                   messages.info(request, 'This  is for Sellers only, You are a Customer')
               else:
@@ -91,7 +91,7 @@ class CustomerSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('home')
+        return redirect('main')
 
 class SellerSignupVIew(CreateView):
     model = User
@@ -105,5 +105,5 @@ class SellerSignupVIew(CreateView):
     def form_valid(self, form):
         user = form.save()
         #login(self.request, user)
-        return redirect('home')
+        return redirect('main')
    
