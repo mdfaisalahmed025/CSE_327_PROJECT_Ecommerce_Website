@@ -8,8 +8,8 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('log/', views.log, name="log"),
     path('success/', views.welcome, name='success'),
-    path('log2/', views.log2, name='login2'),
+    path('log2/', views.log2, name='login'),
     path('signup/', views.Signup, name='signup'),
     path('alphaapp/signup/customer/', CustomerSignUpView.as_view(), name='customer_signup'),
-    path('alphaapp/signup/seller/',   SellerSignupVIew.as_view(), name='seller_signup'),
+    path('alphaapp/signup/seller/',   SellerSignupVIew.as_view(),  name='seller_signup'),
 ]

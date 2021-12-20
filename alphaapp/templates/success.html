@@ -9,8 +9,9 @@
     <title>Document</title>
 </head>
 <body>
-
-    <h1>Welcome {{Customer.Username}}</h1>
+     {% if request.user.is_autheniticated and user.is_customer == True %}
+    <h1>Welcome {{.user.username}}</h1>
+    
     
 </body>
 </html>

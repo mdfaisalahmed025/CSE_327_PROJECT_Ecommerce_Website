@@ -23,13 +23,6 @@ def welcome(request):
     return render(request, 'success.html')
 
 def log(request):
-    """
-    This method is used to view the login page.
-    :param request: it's a HttpResponse from user.
-    :type request: HttpResponse.
-    :return: this method returns a search page which is a HTML page.
-    :rtype: HttpResponse.
-    """
     if request.user.is_authenticated:
         return redirect('success')
     else:
@@ -52,13 +45,6 @@ def log(request):
 
 
 def log2(request):
-    """
-    This method is used to view the login page.
-    :param request: it's a HttpResponse from user.
-    :type request: HttpResponse.
-    :return: this method returns a search page which is a HTML page.
-    :rtype: HttpResponse.
-    """
     if request.user.is_authenticated:
         return redirect('success')
     else:
@@ -76,7 +62,7 @@ def log2(request):
                  messages.info(request, 'Username or Password is incorrect')
             
     context= {}
-    return render(request, 'login2.html', context)
+    return render(request, 'login.html', context)
 
 
 class CustomerSignUpView(CreateView):
@@ -104,6 +90,6 @@ class SellerSignupVIew(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        #login(self.request, user)
+        login(self.request, user)
         return redirect('main')
    
